@@ -1,0 +1,23 @@
+body {
+  padding-top: 50px;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+
+.station_item {
+    width: 120px;
+    height: 44px;
+    background-color: #FF9900;
+    color: #FFF;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    list-style-type: none;
+}
