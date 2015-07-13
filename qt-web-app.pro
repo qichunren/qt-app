@@ -21,17 +21,17 @@ QMAKE_CFLAGS += -DMONGOOSE_ENABLE_THREADS
 #LIBS += -pthread
 
 
-SOURCES += main.cpp mainwindow.cpp mongoose.c \
-    web_server.cpp \
-    database.cpp
+SOURCES += src/main.cpp src/mainwindow.cpp src/third_libs/mongoose.c \
+    src/web_server.cpp \
+    src/database.cpp
 
-HEADERS  += mainwindow.h mongoose.h \
-    web_server.h \
-    database.h
+HEADERS  += src/mainwindow.h src/third_libs/mongoose.h \
+    src/web_server.h \
+    src/database.h
 
-FORMS    += mainwindow.ui
+FORMS    += src/mainwindow.ui
 
-OTHER_FILES += README.md
+OTHER_FILES += README
 
 RESOURCES += \
-    static_resources.qrc
+    src/static_resources.qrc

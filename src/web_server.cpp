@@ -1,5 +1,5 @@
 #include "web_server.h"
-#include "mongoose.h"
+#include "third_libs/mongoose.h"
 #include <QDebug>
 #include <pthread.h>
 #include <QFileInfo>
