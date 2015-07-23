@@ -12,5 +12,7 @@
         <file alias="ie-emulation-modes-warning.js">../static/assets/javascripts/ie-emulation-modes-warning.js</file>
         <file alias="ie10-viewport-bug-workaround.js">../static/assets/javascripts/ie10-viewport-bug-workaround.js</file>
         <file alias="application.js">../static/assets/javascripts/application.js</file>
+        <file alias="underscore-1.8.3.js">../static/assets/javascripts/underscore-1.8.3.js</file>
+        <file alias="backbone-1.2.1.js">../static/assets/javascripts/backbone-1.2.1.js</file>
     </qresource>
 </RCC>
