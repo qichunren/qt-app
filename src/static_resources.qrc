@@ -3,14 +3,14 @@
         <file>../static/index.html</file>
     </qresource>
     <qresource prefix="/assets/stylesheets">
-        <file alias="bootstrap.min.css">../static/stylesheets/bootstrap.min.css</file>
-        <file alias="application.css">../static/stylesheets/application.css</file>
+        <file alias="bootstrap.min.css">../static/assets/stylesheets/bootstrap.min.css</file>
+        <file alias="application.css">../static/assets/stylesheets/application.css</file>
     </qresource>
     <qresource prefix="/assets/javascripts">
-        <file alias="jquery-1.11.3.min.js">../static/javascripts/jquery-1.11.3.min.js</file>
-        <file alias="bootstrap.min.js">../static/javascripts/bootstrap.min.js</file>
-        <file alias="ie-emulation-modes-warning.js">../static/javascripts/ie-emulation-modes-warning.js</file>
-        <file alias="ie10-viewport-bug-workaround.js">../static/javascripts/ie10-viewport-bug-workaround.js</file>
-        <file alias="application.js">../static/javascripts/application.js</file>
+        <file alias="jquery-1.11.3.min.js">../static/assets/javascripts/jquery-1.11.3.min.js</file>
+        <file alias="bootstrap.min.js">../static/assets/javascripts/bootstrap.min.js</file>
+        <file alias="ie-emulation-modes-warning.js">../static/assets/javascripts/ie-emulation-modes-warning.js</file>
+        <file alias="ie10-viewport-bug-workaround.js">../static/assets/javascripts/ie10-viewport-bug-workaround.js</file>
+        <file alias="application.js">../static/assets/javascripts/application.js</file>
     </qresource>
 </RCC>
