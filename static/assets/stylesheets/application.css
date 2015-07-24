@@ -1,12 +1,11 @@
 body {
-  padding-top: 50px;
+  padding-top: 75px;
 }
 
 .starter-template {
   padding: 40px 15px;
   text-align: center;
 }
-
 
 .station_item {
     width: 120px;
@@ -21,3 +20,40 @@ body {
     margin-bottom: 10px;
     list-style-type: none;
 }
+
+
+/* Custom navbar style */
+#navbar ul.navbar-nav {
+  margin: 8px;
+}
+#navbar ul.navbar-nav > li {
+  background-color: red;
+  margin-right: 10px;  
+  border-radius: 6px;
+  border: 2px solid #FFF;
+  
+}
+
+#navbar ul.navbar-nav > li > a {
+    color: #FFF;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#navbar ul.navbar-nav > li > a:hover {
+    color: #BDBDBD;        
+}
+
+/* Color theme */
+
+body {
+  background-color: #000;
+}
+
+hr {
+  height: 4px;
+  background-color: #FF9900;
+  border-width: 0;
+  clear: both;
+
+} 

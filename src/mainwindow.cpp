@@ -3,6 +3,8 @@
 #include "web_server.h"
 #include "database.h"
 #include <QWebView>
+#include <QWebFrame>
+#include "ntdeck.h"
 WebServer * web_server;
 
 static QWebView * view;
@@ -16,8 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     view = new QWebView(this);
     ui->page1Layout->addWidget(view);
-
-
 }
 
 MainWindow::~MainWindow()
@@ -28,12 +28,22 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     web_server->start();
-    view->load(QUrl("http://localhost:8080"));
+    view->load(QUrl("file:///home/qichunren/code/qt-web-app/static/index.html"));
+    QWebFrame * frame = view->page()->mainFrame();
+    frame->addToJavaScriptWindowObject("Ntdeck", new Ntdeck(this));
 }
-
 
 
 void MainWindow::on_pushButton_2_clicked()
 {
     web_server->stop();
+}
+
+void MainWindow::switchPage2() {
+    ui->stackedWidget->setCurrentIndex(1);
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(0);
 }

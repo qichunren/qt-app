@@ -23,11 +23,13 @@ QMAKE_CFLAGS += -DMONGOOSE_ENABLE_THREADS
 
 SOURCES += src/main.cpp src/mainwindow.cpp src/third_libs/mongoose.c \
     src/web_server.cpp \
-    src/database.cpp
+    src/database.cpp \
+    src/ntdeck.cpp
 
 HEADERS  += src/mainwindow.h src/third_libs/mongoose.h \
     src/web_server.h \
-    src/database.h
+    src/database.h \
+    src/ntdeck.h
 
 FORMS    += src/mainwindow.ui
 
