@@ -1,0 +1,5 @@
+qt-web-app (1.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #nnnn)  <nnnn is the bug number of your ITP>
+
+ -- qichunren <whyruby@gmail.com>  Thu, 06 Aug 2015 10:50:02 +0800
