@@ -10,5 +10,6 @@ Ntdeck::Ntdeck(MainWindow *mainWindow, QObject *parent) :
 
 void Ntdeck::hello() {
     qDebug() << "Hello from qt";
-    window->switchPage2();
+    //window->switchPage2();
+
 }

@@ -5,7 +5,7 @@
 #include <QFileInfo>
 #include <QFile>
 #include "database.h"
-#include <json/json.h>
+#include <json.h>
 
 static bool running_flag;
 static struct mg_server *server1, *server2;
@@ -13,6 +13,11 @@ static pthread_t thread1, thread2;
 static int thread1_return_value, thread2_return_value;
 static const char *web_server_root;
 static const char *web_server_port;
+
+// Data associated with each websocket connection
+struct conn_data {
+  int room;
+};
 
 static int serve_static_assets(struct mg_connection *conn) {
     qDebug() << "template";
@@ -109,11 +114,50 @@ static int serve_request(struct mg_connection *conn) {
     }
 }
 
+static void handle_websocket_message(struct mg_connection *conn) {
+  struct conn_data *d = (struct conn_data *) conn->connection_param;
+  struct mg_connection *c;
+qDebug() << "handle websocket message;" << QString(conn->content);
+  printf("[%.*s]\n", (int) conn->content_len, conn->content);
+  if (conn->content_len > 5 && !memcmp(conn->content, "join ", 5)) {
+    // Client joined new room
+    d->room = conn->content[5];
+  } else if (conn->content_len > 4 && !memcmp(conn->content, "msg ", 4) &&
+             d->room != 0 && d->room != '?') {
+    // Client has sent a message. Push this message to all clients
+    // that are subscribed to the same room as client
+    for (c = mg_next(server1, NULL); c != NULL; c = mg_next(server1, c)) {
+      struct conn_data *d2 = (struct conn_data *) c->connection_param;
+      if (!c->is_websocket || d2->room != d->room) continue;
+      mg_websocket_printf(c, WEBSOCKET_OPCODE_TEXT, "msg %c %p %.*s",
+                          (char) d->room, conn,
+                          conn->content_len - 4, conn->content + 4);
+    }
+    for (c = mg_next(server2, NULL); c != NULL; c = mg_next(server2, c)) {
+      struct conn_data *d2 = (struct conn_data *) c->connection_param;
+      if (!c->is_websocket || d2->room != d->room) continue;
+      mg_websocket_printf(c, WEBSOCKET_OPCODE_TEXT, "msg %c %p %.*s",
+                          (char) d->room, conn,
+                          conn->content_len - 4, conn->content + 4);
+    }
+  }
+}
+
 // Start a browser and hit refresh couple of times. The replies will
 // come from both server instances.
 static int ev_handler(struct mg_connection *conn, enum mg_event ev) {
   if (ev == MG_REQUEST) {
+      if (conn->is_websocket) {
+
+              handle_websocket_message(conn);
+              return MG_TRUE;
+      }
       return serve_request(conn);
+  } else if (ev == MG_WS_CONNECT) {
+      // New websocket connection. Send connection ID back to the client.
+      conn->connection_param = calloc(1, sizeof(struct conn_data));
+      mg_websocket_printf(conn, WEBSOCKET_OPCODE_TEXT, "id %p", conn);
+      return MG_FALSE;
   } else if (ev == MG_AUTH) {
     return MG_TRUE;
   } else {
