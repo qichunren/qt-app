@@ -1,5 +1,10 @@
-qt-web-app.pro.user
+*.pro.user
+*.autosave
 bin/
 build/
 Makefile
 src/Makefile
+*.o
+qrc_*.cpp
+moc_*.cpp
+ui_*.h
