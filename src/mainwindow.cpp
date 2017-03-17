@@ -5,6 +5,7 @@
 #include <QWebView>
 #include <QWebFrame>
 #include "ntdeck.h"
+#include "configuration_dialog.h"
 WebServer * web_server;
 
 static QWebView * view;
@@ -18,11 +19,19 @@ MainWindow::MainWindow(QWidget *parent) :
 
     view = new QWebView(this);
     ui->page1Layout->addWidget(view);
+
+    connect(ui->actionSetting, SIGNAL(triggered()), this, SLOT(show_configuration_dialog()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::show_configuration_dialog()
+{
+    ConfigurationDialog config_dialog(this);
+    int c = config_dialog.exec();
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -32,7 +41,6 @@ void MainWindow::on_pushButton_clicked()
     QWebFrame * frame = view->page()->mainFrame();
     frame->addToJavaScriptWindowObject("Ntdeck", new Ntdeck(this));
 }
-
 
 void MainWindow::on_pushButton_2_clicked()
 {

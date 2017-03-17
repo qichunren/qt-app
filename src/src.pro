@@ -29,16 +29,19 @@ SOURCES += main.cpp mainwindow.cpp third_libs/mongoose.c \
     web_server.cpp \
     database.cpp \
     ntdeck.cpp \
-    nt_logger.cpp
+    nt_logger.cpp \
+    configuration_dialog.cpp
 
 HEADERS  += mainwindow.h third_libs/mongoose.h \
     web_server.h \
     database.h \
     ntdeck.h \
     nt_logger.h \
-    nt_header.h
+    nt_header.h \
+    configuration_dialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    configuration_dialog.ui
 
 OTHER_FILES += README.md
 
