@@ -1,6 +1,6 @@
 QT       += core gui sql webkitwidgets
 
-QT += xlsx # https://github.com/dbzhang800/QtXlsxWriter
+# QT += xlsx # https://github.com/dbzhang800/QtXlsxWriter
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -9,8 +9,14 @@ PKGCONFIG += json-c # https://linuxprograms.wordpress.com/2010/05/20/json-c-libj
 
 TEMPLATE = app
 
-DESTDIR = ../bin
 TARGET = qt-web-app
+target.path = /usr/local/bin/
+
+scripts.path = /usr/local/bin/
+scripts.files = ../scripts/qt-app.start ../scripts/qt-app.stop ../scripts/qt-app-watchdog.sh
+
+INSTALLS += target scripts
+
 unix:MOC_DIR = ../build/moc
 unix:OBJECTS_DIR = ../build/
 
@@ -22,12 +28,15 @@ QMAKE_CFLAGS += -DMONGOOSE_ENABLE_THREADS
 SOURCES += main.cpp mainwindow.cpp third_libs/mongoose.c \
     web_server.cpp \
     database.cpp \
-    ntdeck.cpp
+    ntdeck.cpp \
+    nt_logger.cpp
 
 HEADERS  += mainwindow.h third_libs/mongoose.h \
     web_server.h \
     database.h \
-    ntdeck.h
+    ntdeck.h \
+    nt_logger.h \
+    nt_header.h
 
 FORMS    += mainwindow.ui
 

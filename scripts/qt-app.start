@@ -1,0 +1,9 @@
+#!/bin/sh
+
+echo "Start qt-app and its watchdog ..."
+
+ps -ef | grep qt-app | egrep -v grep | awk '{print $1}' | xargs kill -9
+ps -ef | grep qt-app | egrep -v grep | awk '{print $2}' | xargs kill -9
+
+qt-app -d
+qt-app-watchdog.sh >/dev/null 2>/dev/null &

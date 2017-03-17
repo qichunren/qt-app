@@ -31,7 +31,7 @@ public:
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout;
     QStackedWidget *stackedWidget;
-    QWidget *page;
+    QWidget *page_1;
     QVBoxLayout *page1Layout;
     QPushButton *pushButton_2;
     QPushButton *pushButton;
@@ -54,23 +54,23 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         stackedWidget = new QStackedWidget(centralWidget);
         stackedWidget->setObjectName(QStringLiteral("stackedWidget"));
-        page = new QWidget();
-        page->setObjectName(QStringLiteral("page"));
-        page1Layout = new QVBoxLayout(page);
+        page_1 = new QWidget();
+        page_1->setObjectName(QStringLiteral("page_1"));
+        page1Layout = new QVBoxLayout(page_1);
         page1Layout->setSpacing(6);
         page1Layout->setContentsMargins(11, 11, 11, 11);
         page1Layout->setObjectName(QStringLiteral("page1Layout"));
-        pushButton_2 = new QPushButton(page);
+        pushButton_2 = new QPushButton(page_1);
         pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
 
         page1Layout->addWidget(pushButton_2);
 
-        pushButton = new QPushButton(page);
+        pushButton = new QPushButton(page_1);
         pushButton->setObjectName(QStringLiteral("pushButton"));
 
         page1Layout->addWidget(pushButton);
 
-        stackedWidget->addWidget(page);
+        stackedWidget->addWidget(page_1);
         page_2 = new QWidget();
         page_2->setObjectName(QStringLiteral("page_2"));
         pushButton_3 = new QPushButton(page_2);
@@ -94,7 +94,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        stackedWidget->setCurrentIndex(1);
+        stackedWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
