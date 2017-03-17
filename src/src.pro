@@ -9,7 +9,7 @@ PKGCONFIG += json-c # https://linuxprograms.wordpress.com/2010/05/20/json-c-libj
 
 TEMPLATE = app
 
-TARGET = qt-web-app
+TARGET = ../bin/qt-app
 target.path = /usr/local/bin/
 
 scripts.path = /usr/local/bin/
