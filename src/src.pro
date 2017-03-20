@@ -30,7 +30,7 @@ SOURCES += main.cpp mainwindow.cpp third_libs/mongoose.c \
     database.cpp \
     ntdeck.cpp \
     nt_logger.cpp \
-    nt_local_server.cpp \
+    nt_local_server.cpp nt_local_client.cpp \
     configuration_dialog.cpp
 
 HEADERS  += mainwindow.h third_libs/mongoose.h \
@@ -39,7 +39,7 @@ HEADERS  += mainwindow.h third_libs/mongoose.h \
     ntdeck.h \
     nt_logger.h \
     nt_header.h \
-    nt_local_server.h \
+    nt_local_server.h nt_local_client.h \
     configuration_dialog.h
 
 FORMS    += mainwindow.ui \
